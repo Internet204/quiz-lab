@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Practice quiz · Local learning lab</title>
+  <meta name="description" content="Local practice quiz with text entry, single choice, multiple answers and matching questions.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='15' fill='none' stroke='%230074a4' stroke-width='5' stroke-dasharray='5 3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a href="#course" class="brand" aria-label="Local learning lab home">
+      <svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="23" class="ring outer"/><circle cx="27" cy="27" r="17" class="ring middle"/><circle cx="27" cy="27" r="11" class="ring inner"/><circle cx="27" cy="27" r="4" fill="#46575b"/></svg>
+      <span class="local-label">Local practice</span>
+    </a>
+    <div class="profile"><svg viewBox="0 0 24 24" class="bell" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 20h4"/></svg><span>Local Student</span><span class="avatar">LS</span><span class="chevron">⌄</span></div>
+  </header>
+  <main id="course">
+    <section class="course-card">
+      <h1>Software Design Patterns | Practice Lab</h1>
+      <nav aria-label="Breadcrumb" class="breadcrumbs"><a href="#course">Home</a><span>/</span><a href="#course">My courses</a><span>/</span><a href="#course">Software Design Patterns</a><span>/</span><a href="#course">Week 9</a><span>/</span><span class="crumb-current">Mixed practice quiz</span></nav>
+    </section>
+    <div class="page-layout">
+      <aside class="sidebar">
+        <section class="navigation-card">
+          <h2>Quiz navigation</h2>
+          <nav id="question-navigation" aria-label="Questions" class="question-navigation"></nav>
+          <button class="text-button" id="view-mode">Show all questions</button>
+          <button class="text-button" id="finish-side">Finish attempt …</button>
+          <p class="saved-note" id="save-status" role="status">Answers are saved on this device.</p>
+        </section>
+        <details class="settings-card">
+          <summary>Practice settings</summary>
+          <label><input type="checkbox" id="block-paste"> Block paste in answer fields</label>
+          <label><input type="checkbox" id="show-preview"> Show animated preview</label>
+          <p>Settings affect this local practice page only.</p>
+          <button type="button" class="text-button" id="new-attempt">Start a new attempt</button>
+        </details>
+      </aside>
+      <section class="attempt" aria-label="Quiz attempt">
+        <div id="result-summary" hidden></div>
+        <div class="attempt-toolbar">
+          <span id="page-label">Question 1 of 20</span>
+          <div class="timer-group"><span class="timer" id="timer">Time left <strong id="timer-value">0:30:00</strong></span><button class="button secondary compact" id="hide-timer">Hide</button></div>
+        </div>
+        <div id="questions"></div>
+        <div class="page-controls"><button class="button secondary" id="previous">Previous page</button><button class="button primary" id="next">Next page</button></div>
+        <footer class="activity-footer">
+          <button class="text-button" id="first-question">◄ First question</button>
+          <label><span class="sr-only">Jump to question</span><select id="jump-question" aria-label="Jump to question"></select></label>
+          <button class="text-button" id="last-question">Last question ►</button>
+        </footer>
+      </section>
+    </div>
+  </main>
+  <div id="preview" class="preview" hidden aria-label="Simulated moving camera preview"><div class="preview-scene"><span class="preview-orb"></span><div class="preview-grid"></div></div><div class="preview-label"><span></span>Camera preview · simulation</div></div>
+  <dialog id="finish-dialog"><form method="dialog"><h2>Finish attempt?</h2><p id="finish-message"></p><p>Your answers will be checked locally. No correct-answer panels will be added below the questions.</p><div class="dialog-buttons"><button class="button secondary" value="cancel">Return to attempt</button><button class="button primary" value="finish">Submit all and finish</button></div></form></dialog>
+  <dialog id="reset-dialog"><form method="dialog"><h2>Start a new attempt?</h2><p>This clears the practice answers, flags and result on this device.</p><div class="dialog-buttons"><button class="button secondary" value="cancel">Keep this attempt</button><button class="button primary" value="reset">Start again</button></div></form></dialog>
+  <div class="site-footer">Local learning lab <span>·</span> Practice only</div>
+</body>
+</html>
